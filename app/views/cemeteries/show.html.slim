@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @cemetery
+
+div
+  => link_to "Edit this cemetery", edit_cemetery_path(@cemetery)
+  '|
+  =< link_to "Back to cemeteries", cemeteries_path
+
+  = button_to "Destroy this cemetery", cemetery_path(@cemetery), method: :delete

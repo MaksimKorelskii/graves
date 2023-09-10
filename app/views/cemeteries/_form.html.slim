@@ -1,0 +1,18 @@
+= form_with(model: @cemetery) do |form|
+  - if @cemetery.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@cemetery.errors.count, "error")} prohibited this cemetery from being saved:"
+      ul
+        - @cemetery.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :title
+    = form.text_field :title, required: true, minlength: 2, placeholder: "Title"
+    
+  div
+    = form.label :description
+    = form.text_area :description, required: true, minlength: 5, placeholder: "Description"
+
+  div
+    = form.submit 'Submit cemetery!'

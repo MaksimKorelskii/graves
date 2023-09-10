@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Cemeteries
+
+#cemeteries
+  - @cemeteries.each do |cemetery|
+    == render cemetery
+    p
+      = link_to "Show this cemetery", cemetery
+
+= link_to "New cemetery", new_cemetery_path
