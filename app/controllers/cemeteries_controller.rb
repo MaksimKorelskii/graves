@@ -20,7 +20,8 @@ class CemeteriesController < ApplicationController
     @cemetery = Cemetery.new(cemetery_params)
     
     if @cemetery.save
-      redirect_to cemetery_url(@cemetery), notice: "Cemetery was successfully created."
+      redirect_to cemetery_url(@cemetery)
+      flash[:success] = "Cemetery was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +29,8 @@ class CemeteriesController < ApplicationController
 
   def update
     if @cemetery.update(cemetery_params)
-      redirect_to cemetery_url(@cemetery), notice: "Cemetery was successfully updated."
+      redirect_to cemetery_url(@cemetery)
+      flash[:success] = "Cemetery was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +39,8 @@ class CemeteriesController < ApplicationController
   def destroy
     @cemetery.destroy
 
-    redirect_to cemeteries_url, notice: "Cemetery was successfully destroyed."
+    redirect_to cemeteries_url
+    flash[:success] = "Cemetery was successfully destroyed."
   end
 
   private
