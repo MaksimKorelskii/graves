@@ -1,11 +1,9 @@
-p style="color: green" = notice
-
 h1 Cemeteries
+
+= link_to "New cemetery", new_cemetery_path, class: 'btn btn-primary btn-sm'
 
 #cemeteries
   - @cemeteries.each do |cemetery|
-    == render cemetery
+    / == render cemetery
     p
-      = link_to "Show this cemetery", cemetery
-
-= link_to "New cemetery", new_cemetery_path
+      = link_to "#{cemetery.title}", cemetery, class: 'btn'
