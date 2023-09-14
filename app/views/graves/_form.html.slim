@@ -1,0 +1,12 @@
+== render 'shared/errors', object: @grave
+
+= form_with model: [@cemetery, @grave] do |form|
+  table class="table"
+    tr
+      td= form.text_field :last_name, placeholder: 'Last name', class: 'form-control'
+      td= form.text_field :first_name, placeholder: 'First name', class: 'form-control'
+      td= form.text_field :father_name, placeholder: 'Father name', class: 'form-control'
+      td= form.text_field :birthday, placeholder: 'Birthday, yyyy-mm-dd', class: 'form-control'
+      td= form.text_field :deathday, placeholder: 'Deathday yyyy-mm-dd', class: 'form-control'
+  div
+    = form.submit 'Submit Grave!', class: 'btn btn-primary'

@@ -1,13 +1,17 @@
 == render 'shared/errors', object: @cemetery
 
-= form_with(model: @cemetery) do |form|
-  div
-    = form.label :title
-    = form.text_field :title
-    
-  div
-    = form.label :description
-    = form.text_area :description
+= form_with model: @cemetery do |form|
+  div class="mb-3 row"
+    div class="col-sm-2 col-form-label"
+      = form.label :title
+    div class="col-sm-10"
+      = form.text_field :title, placeholder: 'Title', class: 'form-control'
+
+  div class="mb-3 row"
+    div class="col-sm-2 col-form-label"
+      = form.label :description
+    div class="col-sm-10"
+      = form.text_area :description, placeholder: 'Title', class: 'form-control'
 
   div
-    = form.submit 'Submit cemetery!'
+    = form.submit 'Submit cemetery!', class: 'btn btn-primary'

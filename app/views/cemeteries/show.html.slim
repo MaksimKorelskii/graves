@@ -9,6 +9,71 @@ p class="lead my-3"
 div
   => link_to "Edit", edit_cemetery_path(@cemetery), class: 'btn btn-primary'
   '|
-  => link_to "Destroy", cemetery_path(@cemetery), method: :delete, class: 'btn btn-danger'
+  => link_to "Delete", cemetery_path(@cemetery), method: :delete, class: 'btn btn-danger',
+             data: {method: :delete, confirm: 'Are you sure?'}
   '|
   =< link_to "Back to cemeteries", cemeteries_path, class: 'btn btn-secondary'
+
+hr class="my-3"
+
+h2 New grave
+
+== render 'graves/form'
+
+div
+  / div class="mb-3 row"
+  /   div class="col-sm-2 col-form-label"
+  /     = form.label :last_name
+  /   div class="col-sm-10"
+  /     = form.text_field :last_name, placeholder: 'Last name', class: 'form-control'
+
+  / div class="mb-3 row"
+  /   div class="col-sm-2 col-form-label"
+  /     = form.label :first_name
+  /   div class="col-sm-10"
+  /     = form.text_field :first_name, placeholder: 'First name', class: 'form-control'
+
+  / div class="mb-3 row"
+  /   div class="col-sm-2 col-form-label"
+  /     = form.label :father_name
+  /   div class="col-sm-10"
+  /     = form.text_field :father_name, placeholder: 'Father name', class: 'form-control'
+
+  / div class="mb-3 row"
+  /   div class="col-sm-2 col-form-label"
+  /     = form.label :birthday
+  /   div class="col-sm-10"
+  /     = form.text_field :birthday, placeholder: 'Birthday', class: 'form-control'
+
+  / div class="mb-3 row"
+  /   div class="col-sm-2 col-form-label"
+  /     = form.label :deathday
+  /   div class="col-sm-10"
+  /     = form.text_field :deathday, placeholder: 'Deathday', class: 'form-control'
+
+  / div
+  /   = form.submit 'Submit Grave!', class: 'btn btn-primary'
+
+- unless @graves.empty? 
+  h2 Graves
+
+  table class="table"
+    tr
+      th Last name
+      th First name
+      th Father name
+      th Birthday
+      th Deathday
+      th Action
+    - @graves.each do |grave|
+      tr
+        th= grave.last_name
+        th= grave.first_name
+        th= grave.father_name
+        th= grave.birthday
+        th= grave.deathday
+        th= link_to "Edit", edit_cemetery_grave_path(@cemetery, grave), 
+                    class: 'btn btn-info btn-sm'
+        th= link_to "Delete", cemetery_grave_path(@cemetery, grave), 
+                    class: 'btn btn-danger btn-sm',
+                    data: {method: :delete, confirm: 'Are you sure?'}

@@ -6,6 +6,9 @@ class CemeteriesController < ApplicationController
   end
 
   def show
+    @grave = @cemetery.graves.build
+    @graves = @cemetery.graves.order created_at: :desc
+    # @graves = Grave.where(cemetery_id: @cemetery).order(created_at: :desc).limit(2)
   end
 
   def new

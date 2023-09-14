@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_09_202711) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_11_214759) do
   create_table "cemeteries", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
@@ -18,4 +18,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_09_202711) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "graves", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "father_name"
+    t.date "birthday"
+    t.date "deathday"
+    t.integer "cemetery_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cemetery_id"], name: "index_graves_on_cemetery_id"
+  end
+
+  add_foreign_key "graves", "cemeteries"
 end

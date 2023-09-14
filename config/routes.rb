@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root "pages#index"
 
-  resources :cemeteries
+  resources :cemeteries do
+    resources :graves, only: %i[create destroy update edit] #exept: %[new show]
+  end
 
   # get '/cemeteries', to: 'cemeteries#index'
   # get 'cemeteries/new', to: 'cemeteries#new'
