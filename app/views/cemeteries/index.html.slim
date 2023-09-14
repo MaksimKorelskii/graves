@@ -6,4 +6,4 @@ h1 Cemeteries
   - @cemeteries.each do |cemetery|
     / == render cemetery
     p
-      = link_to "#{cemetery.title}", cemetery, class: 'btn'
+      = link_to "#{cemetery.title} | Graves: #{cemetery.graves.count}", cemetery, class: 'btn'
