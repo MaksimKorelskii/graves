@@ -1,4 +1,5 @@
 - provide :page_title, 'Cemeteries'
+- currently_at('Cemeteries')
 
 h1 class="mb-4" Cemeteries
 
@@ -8,4 +9,4 @@ h1 class="mb-4" Cemeteries
   - @cemeteries.each do |cemetery|
     / == render cemetery
     p
-      = link_to "#{cemetery.title} | Graves: #{cemetery.graves.count}", cemetery, class: 'btn'
+      = link_to "#{strip_tags cemetery.title} | Graves: #{cemetery.graves.count} | Description: #{truncate cemetery.description, length: 100, omission: '... (continued)'}", cemetery, class: 'btn'

@@ -1,10 +1,13 @@
-- provide :page_title, "#{@cemetery.title}"
+- provide :page_title, "#{strip_tags @cemetery.title}"
+- currently_at('Cemeteries')
 
 h1 class="mb-4" 
-  = @cemetery.title
+  = strip_tags @cemetery.title
+/ strip_tags удаляет все теги
 
-p class="lead my-3"
-  = @cemetery.description
+div class="lead my-3"
+  = sanitize @cemetery.description 
+/ sanitize позволяет пользователю использовать безопасные теги для редактирования текста
 
 div
   => link_to "Edit", edit_cemetery_path(@cemetery), class: 'btn btn-primary'
@@ -65,15 +68,6 @@ div
       th Birthday
       th Deathday
       th Action
-    - @graves.each do |grave|
-      tr
-        th= grave.last_name
-        th= grave.first_name
-        th= grave.father_name
-        th= grave.birthday
-        th= grave.deathday
-        th= link_to "Edit", edit_cemetery_grave_path(@cemetery, grave), 
-                    class: 'btn btn-info btn-sm'
-        th= link_to "Delete", cemetery_grave_path(@cemetery, grave), 
-                    class: 'btn btn-danger btn-sm',
-                    data: {method: :delete, confirm: 'Are you sure?'}
+
+    == render partial: 'graves/grave', collection: @graves, as: :grave,
+      locals: {cemetery: @cemetery}

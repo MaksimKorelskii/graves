@@ -1,4 +1,6 @@
 class GravesController < ApplicationController
+  include ActionView::RecordIdentifier
+  
   before_action :set_cemetery!
   before_action :set_grave!, only: %i[edit update destroy]
 
@@ -20,8 +22,9 @@ class GravesController < ApplicationController
 
   def update
     if @grave.update(grave_params)
-      redirect_to cemetery_url(@cemetery)
       flash[:success] = "Grave was successfully updated."
+      # redirect_to cemetery_url(@cemetery, anchor: "grave-#{@grave.id}")
+      redirect_to cemetery_url(@cemetery, anchor: dom_id(@grave))
     else
       render :edit, status: :unprocessable_entity
     end
