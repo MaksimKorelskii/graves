@@ -5,10 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 10.times do
-  title = "Cemetery #{Faker::Lorem.word}"
+  title = "Cemetery #{Faker::Lorem.word.capitalize}"
   description = Faker::Lorem.paragraph(sentence_count: 5, supplemental: true, random_sentences_to_add: 4)
-  cemetery = Cemetery.create(title: title, description: description)
+  cemetery = Cemetery.create(title: title, description: description, user_id: 1)
   rand(20...65).times do
     last_name = Faker::Name.last_name
     first_name = Faker::Name.first_name
@@ -16,6 +17,6 @@
     birthday = Faker::Date.birthday(min_age: 18, max_age: 65)
     deathday = Faker::Date.in_date_period
     cemetery.graves.create(last_name: last_name, first_name: first_name, father_name: father_name,
-                 birthday: birthday, deathday: deathday)
+                 birthday: birthday, deathday: deathday, user_id: 1)
   end
 end
