@@ -45,6 +45,9 @@ gem "slim-rails"
 # Pagination
 gem 'pagy', '~> 6'
 
+#Auth
+gem 'devise', '~> 4'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -61,6 +64,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
   gem 'faker', '~> 3'
+  gem 'launchy'
 end
 
 group :development do
