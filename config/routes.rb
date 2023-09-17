@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "pages#index"
 
+  devise_for :users
+
   resources :cemeteries do
     resources :graves, only: %i[create destroy update edit] #exept: %[new show]
   end
