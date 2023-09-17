@@ -3,10 +3,14 @@
 
 h1 class="mb-4" Cemeteries
 
-= link_to "New cemetery", new_cemetery_path, class: 'btn btn-primary btn-sm'
+= link_to "New cemetery", new_cemetery_path, class: 'btn btn-primary btn-sm mb-3'
+
+= pagination @pagy
 
 #cemeteries
   - @cemeteries.each do |cemetery|
     / == render cemetery
     p
-      = link_to "#{strip_tags cemetery.title} | Graves: #{cemetery.graves.count} | Description: #{truncate cemetery.description, length: 100, omission: '... (continued)'}", cemetery, class: 'btn'
+      = link_to "#{strip_tags cemetery.title} | Graves: #{cemetery.graves.count} | Description: #{truncate cemetery.description, length: 30, omission: '... (continued)'}", cemetery, class: 'btn'
+
+= pagination @pagy

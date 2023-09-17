@@ -12,7 +12,7 @@ class GravesController < ApplicationController
       flash[:success] = "Grave was successfully created."
       redirect_to cemetery_path(@cemetery)
     else
-      @graves = @cemetery.graves.order created_at: :desc
+      @pagy, @graves = pagy @cemetery.graves.order created_at: :desc
       render 'cemeteries/show'
     end
   end

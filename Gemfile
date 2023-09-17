@@ -42,6 +42,9 @@ gem "bootsnap", require: false
 # Slim
 gem "slim-rails"
 
+# Pagination
+gem 'pagy', '~> 6'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

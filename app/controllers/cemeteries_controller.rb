@@ -2,13 +2,15 @@ class CemeteriesController < ApplicationController
   before_action :set_cemetery, only: %i[ show edit update destroy ]
 
   def index
-    @cemeteries = Cemetery.all
+    # @cemeteries = Cemetery.all
+    @pagy, @cemeteries = pagy Cemetery.all
   end
 
   def show
     @grave = @cemetery.graves.build
-    @graves = @cemetery.graves.order created_at: :desc
+    # @graves = @cemetery.graves.order created_at: :desc
     # @graves = Grave.where(cemetery_id: @cemetery).order(created_at: :desc).limit(2)
+    @pagy, @graves = pagy @cemetery.graves.order created_at: :desc
   end
 
   def new

@@ -60,6 +60,8 @@ div
 - unless @graves.empty? 
   h2 Graves
 
+  = pagination @pagy
+
   table class="table"
     tr
       th Last name
@@ -71,3 +73,5 @@ div
 
     == render partial: 'graves/grave', collection: @graves, as: :grave,
       locals: {cemetery: @cemetery}
+
+  = pagination @pagy
