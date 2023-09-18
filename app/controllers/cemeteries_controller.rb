@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CemeteriesController < ApplicationController
-  before_action :set_cemetery, only: %i[ show edit update destroy ]
+  before_action :set_cemetery, only: %i[show edit update destroy]
 
   def index
     # @cemeteries = Cemetery.all
@@ -17,16 +19,15 @@ class CemeteriesController < ApplicationController
     @cemetery = Cemetery.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     # render plain: params # Отрендерить текст объект params
     @cemetery = Cemetery.new(cemetery_params)
-    
+
     if @cemetery.save
       redirect_to cemetery_url(@cemetery)
-      flash[:success] = "Cemetery was successfully created."
+      flash[:success] = 'Cemetery was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +36,7 @@ class CemeteriesController < ApplicationController
   def update
     if @cemetery.update(cemetery_params)
       redirect_to cemetery_url(@cemetery)
-      flash[:success] = "Cemetery was successfully updated."
+      flash[:success] = 'Cemetery was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +46,7 @@ class CemeteriesController < ApplicationController
     @cemetery.destroy
 
     redirect_to cemeteries_url
-    flash[:success] = "Cemetery was successfully destroyed."
+    flash.now[:success] = 'Cemetery was successfully destroyed.'
   end
 
   private
