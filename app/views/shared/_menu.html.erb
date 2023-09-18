@@ -8,6 +8,25 @@
           <li><%= nav_tab 'Cemeteries', cemeteries_path,
             class: 'nav-link px-2', current_page: current_page %></li>
         </ul>
+
+        <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+          <% if user_signed_in? %>
+            <li>
+              <a class="nav-link px-2 text-white" href="#">
+                <%= current_user.email.split('@')[0].capitalize %>
+              </a>
+            </li>
+
+            <li><%= nav_tab 'Log out', destroy_user_session_path, method: :delete,
+              class: 'nav-link px-2', current_page: current_page %>
+            </li>
+          <% else %>
+            <li><%= nav_tab 'Log in', new_user_session_path,
+              class: 'nav-link px-2', current_page: current_page %></li>
+            <li><%= nav_tab 'Sign Up', new_user_registration_path,
+              class: 'nav-link px-2', current_page: current_page %></li>
+          <% end %>
+        </ul>
       </nav>
     </div>
   </header>
