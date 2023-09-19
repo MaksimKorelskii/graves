@@ -22,7 +22,7 @@ class CemeteriesController < ApplicationController
   def edit; end
 
   def create
-    # render plain: params # Отрендерить текст объект params
+    # render plain: params.to_yaml and return# Отрендерить текст объект params
     @cemetery = Cemetery.new(cemetery_params)
 
     if @cemetery.save

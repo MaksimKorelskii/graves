@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :users, only: %i[edit update]
+
   resources :cemeteries do
     resources :graves, only: %i[create destroy update edit] # exept: %[new show]
   end
