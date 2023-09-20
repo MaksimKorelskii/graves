@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CemeteriesController < ApplicationController
-  before_action :authenticate_user!, except: %i[ show index ]
+  before_action :authenticate_user!, except: %i[show index]
   before_action :set_cemetery, only: %i[show edit update destroy]
 
   def index
