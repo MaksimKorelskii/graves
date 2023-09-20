@@ -50,6 +50,9 @@ gem 'pagy', '~> 6'
 # Auth
 gem 'devise', '~> 4'
 
+# Decorator
+gem 'draper', '~> 4'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
