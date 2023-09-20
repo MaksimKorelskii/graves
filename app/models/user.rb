@@ -11,8 +11,4 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true, 
             format: { with: URI::MailTo::EMAIL_REGEXP }
-
-  def name_or_email
-    self.name == '' ? self.email.split('@')[0].capitalize : self.name
-  end
 end
