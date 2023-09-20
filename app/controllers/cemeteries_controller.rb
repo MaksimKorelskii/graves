@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CemeteriesController < ApplicationController
+  before_action :authenticate_user!, except: %i[ show index ]
   before_action :set_cemetery, only: %i[show edit update destroy]
 
   def index
@@ -23,7 +24,8 @@ class CemeteriesController < ApplicationController
 
   def create
     # render plain: params.to_yaml and return# Отрендерить текст объект params
-    @cemetery = Cemetery.new(cemetery_params)
+    # @cemetery = Cemetery.new(cemetery_params)
+    @cemetery = current_user.cemeteries.build cemetery_params
 
     if @cemetery.save
       redirect_to cemetery_url(@cemetery)

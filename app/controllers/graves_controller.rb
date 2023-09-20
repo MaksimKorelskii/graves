@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
 class GravesController < ApplicationController
-  include ActionView::RecordIdentifier
-
+  before_action :authenticate_user!
   before_action :set_cemetery!
   before_action :set_grave!, only: %i[edit update destroy]
+
+  include ActionView::RecordIdentifier
 
   def edit; end
 
   def create
     # render plain: params
-    @grave = @cemetery.graves.build grave_params
+    @grave = @cemetery.graves.new(grave_params)
+    @grave.user = current_user
 
     if @grave.save
       flash[:success] = 'Grave was successfully created.'
