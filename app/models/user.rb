@@ -8,4 +8,11 @@ class User < ApplicationRecord
 
   has_many :cemeteries, dependent: :destroy
   has_many :graves, dependent: :destroy
+
+  validates :email, presence: true, uniqueness: true, 
+            format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  def name_or_email
+    self.name == '' ? self.email.split('@')[0].capitalize : self.name
+  end
 end
