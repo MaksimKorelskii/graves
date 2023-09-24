@@ -2,11 +2,18 @@
 
 FactoryBot.define do
   factory :grave do
-    last_name { 'MyString' }
-    first_name { 'MyString' }
-    father_name { 'MyString' }
-    birthday { '2023-09-12' }
-    deathday { '2023-09-12' }
-    cemetery { nil }
+    last_name { 'Smith' }
+    first_name { 'Jack ' }
+    father_name { 'Alex' }
+    birthday { '1980-01-01' }
+    deathday { '2015-09-12' }
+
+    trait :invalid do
+      last_name { nil }
+      first_name { 'Jack ' }
+      father_name { 'Alex' }
+      birthday { '1980-01-01' }
+      deathday { '2015-09-12' }
+    end
   end
 end
