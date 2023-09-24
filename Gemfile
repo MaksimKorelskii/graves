@@ -70,6 +70,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
+  gem 'capybara', '~> 3'
 end
 
 group :development do
@@ -79,6 +80,7 @@ group :development do
   gem 'rubocop', '~> 1.56', require: false
   gem 'rubocop-performance', '~> 1.19', require: false
   gem 'rubocop-rails', '~> 2.21', require: false
+  gem 'rubocop-rspec', '~> 2'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
