@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_19_121029) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
+    t.index ["title"], name: "index_cemeteries_on_title", unique: true
     t.index ["user_id"], name: "index_cemeteries_on_user_id"
   end
 
