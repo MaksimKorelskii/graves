@@ -9,11 +9,7 @@ feature 'User can create Cemetery', %q{
 
   describe 'Authenticated user' do
     background do
-      visit new_user_session_path
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
-      click_on 'Login'
-  
+      sign_in(user)
       visit cemeteries_path
       click_on 'New cemetery'
     end
