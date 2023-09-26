@@ -7,10 +7,6 @@ h1 class="mb-4" Cemeteries
 
 = pagination @pagy
 
-#cemeteries
-  - @cemeteries.each do |cemetery|
-    / == render cemetery
-    p
-      = link_to "#{strip_tags cemetery.title} | Graves: #{cemetery.graves.count} | Description: #{truncate cemetery.description, length: 30, omission: '... (continued)'}", cemetery, class: 'btn'
+== render @cemeteries
 
 = pagination @pagy
