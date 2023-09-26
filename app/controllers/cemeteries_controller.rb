@@ -6,7 +6,7 @@ class CemeteriesController < ApplicationController
 
   def index
     # @cemeteries = Cemetery.all
-    @pagy, @cemeteries = pagy Cemetery.all
+    @pagy, @cemeteries = pagy Cemetery.includes(:user).order(created_at: :desc)
   end
 
   def show

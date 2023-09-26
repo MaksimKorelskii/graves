@@ -82,6 +82,9 @@ group :development do
   gem 'rubocop-rails', '~> 2.21', require: false
   gem 'rubocop-rspec', '~> 2'
 
+  # Optimize SQL query
+  gem 'bullet'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
