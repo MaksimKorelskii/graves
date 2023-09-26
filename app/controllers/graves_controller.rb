@@ -11,8 +11,7 @@ class GravesController < ApplicationController
 
   def create
     # render plain: params
-    @grave = @cemetery.graves.new(grave_params)
-    @grave.user = current_user
+    @grave = @cemetery.graves.build(grave_create_params)
 
     if @grave.save
       flash[:success] = 'Grave was successfully created.'
@@ -24,7 +23,7 @@ class GravesController < ApplicationController
   end
 
   def update
-    if @grave.update(grave_params)
+    if @grave.update(grave_update_params)
       flash[:success] = 'Grave was successfully updated.'
       # redirect_to cemetery_url(@cemetery, anchor: "grave-#{@grave.id}")
       redirect_to cemetery_url(@cemetery, anchor: dom_id(@grave))
@@ -49,7 +48,12 @@ class GravesController < ApplicationController
     @grave = @cemetery.graves.find params[:id]
   end
 
-  def grave_params
+  def grave_create_params
+    params.require(:grave).permit(:last_name, :first_name, :father_name,
+                                  :birthday, :deathday).merge(user: current_user)
+  end
+
+  def grave_update_params
     params.require(:grave).permit(:last_name, :first_name, :father_name,
                                   :birthday, :deathday)
   end
