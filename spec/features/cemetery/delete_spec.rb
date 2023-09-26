@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User can delete cemetery', %q{
+feature 'User can delete cemetery', '
   User would like to delete the cemetery
-} do
+' do
   given(:user) { create(:user) }
-  given(:cemetery) { create(:cemetery, user: user) }
+  given(:cemetery) { create(:cemetery, user:) }
 
   scenario 'delete cemetery' do
     sign_in(user)

@@ -66,11 +66,11 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails'
 
+  gem 'capybara', '~> 3'
   gem 'faker', '~> 3'
   gem 'launchy'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
-  gem 'capybara', '~> 3'
 end
 
 group :development do

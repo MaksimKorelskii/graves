@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :cemeteries, dependent: :destroy
   has_many :graves, dependent: :destroy
 
-# It do devise :validatable
-#   validates :email, presence: true, uniqueness: true,
-#                     format: { with: URI::MailTo::EMAIL_REGEXP }
+  # It do devise :validatable
+  #   validates :email, presence: true, uniqueness: true,
+  #                     format: { with: URI::MailTo::EMAIL_REGEXP }
 end

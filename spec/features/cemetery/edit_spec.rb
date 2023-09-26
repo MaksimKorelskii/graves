@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User can edit cemetery', %q{
+feature 'User can edit cemetery', '
   User would like to edit cemetery
-} do
+' do
   given(:user) { create(:user) }
-  given(:cemetery) { create(:cemetery, user: user) }
+  given(:cemetery) { create(:cemetery, user:) }
 
   background do
     sign_in(user)

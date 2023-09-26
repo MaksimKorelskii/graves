@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User can delete your account', %q{
+feature 'User can delete your account', '
   User would like to delete your account
-} do
+' do
   given(:user) { create(:user) }
 
   scenario 'Cancel account' do

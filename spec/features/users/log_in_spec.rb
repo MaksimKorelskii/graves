@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User can sign in', %q{
+feature 'User can sign in', '
   User would like to Sign In
   as an authenticated user
   in order watch cemeteries
-} do
+' do
   given(:user) { create(:user) }
 
   background { visit new_user_session_path }

@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe CemeteriesController, type: :controller do
   let(:user) { create(:user) }
 
   describe 'GET #index' do
-    let(:cemeteries) { create_list :cemetery, 3, user: user }
-  
+    let(:cemeteries) { create_list :cemetery, 3, user: }
+
     # it 'Populates an array of all cemeteries' do
     #   cemetery1 = FactoryBot.create(:cemetery, user: user)
     #   cemetery2 = FactoryBot.create(:cemetery, user: user)

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User can sign up', %q{
+feature 'User can sign up', '
   User would like sign up
-} do
-
+' do
   background { visit new_user_registration_path }
 
   scenario 'User tries to sign up with valid params' do
@@ -15,7 +16,7 @@ feature 'User can sign up', %q{
     expect(page).to have_content 'Welcome! You have signed up successfully'
   end
 
-  scenario 'User tries to sign up with invalid params 
+  scenario 'User tries to sign up with invalid params
             (Password confirmation does not match Password)' do
     fill_in 'Email', with: 'valid@example.com'
     fill_in 'Password', with: 'valid_password'
@@ -42,5 +43,4 @@ feature 'User can sign up', %q{
 
     expect(page).to have_content 'Password is too short (minimum is 6 characters)'
   end
-
 end

@@ -18,8 +18,10 @@ FactoryBot.define do
     end
 
     trait :invalid_title_long do
-      title { 'Title is too long, more than 50 symbols, 
-               title is too long, more than 50 symbols' }
+      title do
+        'Title is too long, more than 50 symbols,
+               title is too long, more than 50 symbols'
+      end
     end
   end
 end

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'User can log out', %q{
+feature 'User can log out', '
   User would like to Log out
-} do
+' do
   given(:user) { create(:user) }
 
   background do
@@ -14,7 +16,7 @@ feature 'User can log out', %q{
 
   scenario 'Registered User tries to log out' do
     click_on 'Log out'
-    
+
     expect(page).to have_content 'Signed out successfully.'
   end
 end
