@@ -23,55 +23,22 @@ h2 New grave
 
 == render 'graves/form'
 
-div
-  / div class="mb-3 row"
-  /   div class="col-sm-2 col-form-label"
-  /     = form.label :last_name
-  /   div class="col-sm-10"
-  /     = form.text_field :last_name, placeholder: 'Last name', class: 'form-control'
-
-  / div class="mb-3 row"
-  /   div class="col-sm-2 col-form-label"
-  /     = form.label :first_name
-  /   div class="col-sm-10"
-  /     = form.text_field :first_name, placeholder: 'First name', class: 'form-control'
-
-  / div class="mb-3 row"
-  /   div class="col-sm-2 col-form-label"
-  /     = form.label :father_name
-  /   div class="col-sm-10"
-  /     = form.text_field :father_name, placeholder: 'Father name', class: 'form-control'
-
-  / div class="mb-3 row"
-  /   div class="col-sm-2 col-form-label"
-  /     = form.label :birthday
-  /   div class="col-sm-10"
-  /     = form.text_field :birthday, placeholder: 'Birthday', class: 'form-control'
-
-  / div class="mb-3 row"
-  /   div class="col-sm-2 col-form-label"
-  /     = form.label :deathday
-  /   div class="col-sm-10"
-  /     = form.text_field :deathday, placeholder: 'Deathday', class: 'form-control'
-
-  / div
-  /   = form.submit 'Submit Grave!', class: 'btn btn-primary'
-
 - unless @graves.empty? 
   h2 Graves
 
   = pagination @pagy
 
-  table class="table"
-    tr
-      th Last name
-      th First name
-      th Father name
-      th Birthday
-      th Deathday
-      th Action
+  .graves_table
+    table class="table"
+      tr
+        th Last name
+        th First name
+        th Father name
+        th Birthday
+        th Deathday
+        th Action
 
-    == render partial: 'graves/grave', collection: @graves, as: :grave,
-      locals: {cemetery: @cemetery}
+      == render partial: 'graves/grave', collection: @graves, as: :grave,
+        locals: {cemetery: @cemetery}
 
   = pagination @pagy
