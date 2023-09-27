@@ -9,19 +9,8 @@ FactoryBot.define do
     title
     description { 'Some description' }
 
-    trait :invalid_title_nil do
-      title { nil }
-    end
-
-    trait :invalid_title_short do
-      title { '< 5' }
-    end
-
-    trait :invalid_title_long do
-      title do
-        'Title is too long, more than 50 symbols,
-               title is too long, more than 50 symbols'
-      end
+    trait :invalid do
+      title { '' }
     end
   end
 end

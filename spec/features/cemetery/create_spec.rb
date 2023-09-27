@@ -9,7 +9,7 @@ feature 'User can create Cemetery', '
 ' do
   given(:user) { create(:user) }
 
-  describe 'Authenticated user' do
+  context 'Authenticated user' do
     background do
       sign_in(user)
       visit cemeteries_path

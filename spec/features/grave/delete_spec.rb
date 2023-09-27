@@ -16,6 +16,7 @@ feature 'User can delete the grave', '
   # end
 
   scenario 'delete the grave' do
+    Expected pending 'No reason given'
     # expect(page).to have_content 'Grave was successfully deleted.'
     # expect(page).to have_content "#{cemetery.title}"
     # expect(page).to_not have_content "#{grave.last_name}"

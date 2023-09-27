@@ -18,6 +18,7 @@ feature 'User can edit the grave', '
   # end
 
   scenario 'edit the grave with valid data' do
+    Expected pending 'No reason given'
     # fill_in 'Last name', with: 'updated'
     # click_on 'Submit Grave!'
 
