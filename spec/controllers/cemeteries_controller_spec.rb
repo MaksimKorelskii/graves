@@ -57,7 +57,9 @@ RSpec.describe CemeteriesController, type: :controller do
 
     context 'with invalid attributes' do
       it 'does not save new cemetery in the db' do
-        expect { post :create, params: { cemetery: attributes_for(:cemetery, :invalid) } }.to_not change(Cemetery, :count)
+        expect do
+          post :create, params: { cemetery: attributes_for(:cemetery, :invalid) }
+        end.to_not change(Cemetery, :count)
       end
 
       it 'render new views' do
@@ -90,7 +92,7 @@ RSpec.describe CemeteriesController, type: :controller do
     end
   end
 
-  describe 'GET #edit'do
+  describe 'GET #edit' do
     let(:cemetery) { create :cemetery, user: }
     before { get :edit, params: { id: cemetery.id } }
 
@@ -108,7 +110,7 @@ RSpec.describe CemeteriesController, type: :controller do
 
     context 'update with valid attributes' do
       before { put :update, params: { id: cemetery, cemetery: { title: 'Updated title', description: 'New' } } }
-      
+
       it 'change cemetery attributes' do
         cemetery.reload
 

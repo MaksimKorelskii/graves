@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   private
-  
+
   def name_or_guest
     return current_user.name_or_email if current_user.present?
 

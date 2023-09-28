@@ -3,12 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe GravesController, type: :controller do
-
   describe 'GET #edit' do
     let(:user) { create :user }
     let(:cemetery) { create(:cemetery, user:) }
     let(:grave) { create(:grave, cemetery:, user:) }
-    
+
     it 'PUT #edit' do
       Expected pending 'No reason given'
       # get :edit, params: { cemetery_id: cemetery.id, id: grave.id }
@@ -25,7 +24,7 @@ RSpec.describe GravesController, type: :controller do
 
     context 'some' do
       before { post :create, params: { cemetery_id: cemetery, grave: attributes_for(:grave) } }
-      
+
       it 'assigns the requested cemetery to @cemetery' do
         expect(assigns(:cemetery)).to eq cemetery
       end
@@ -42,7 +41,9 @@ RSpec.describe GravesController, type: :controller do
       end
 
       it 'save new grave in db' do
-        expect { post :create, params: { cemetery_id: cemetery, grave: attributes_for(:grave) } }.to change(Grave, :count).by(1)
+        expect do
+          post :create, params: { cemetery_id: cemetery, grave: attributes_for(:grave) }
+        end.to change(Grave, :count).by(1)
       end
     end
 
@@ -59,7 +60,9 @@ RSpec.describe GravesController, type: :controller do
       end
 
       it 'does not save new grave in db' do
-        expect { post :create, params: { cemetery_id: cemetery, grave: attributes_for(:grave, :invalid) } }.to_not change(Grave, :count)
+        expect do
+          post :create, params: { cemetery_id: cemetery, grave: attributes_for(:grave, :invalid) }
+        end.to_not change(Grave, :count)
       end
     end
   end
