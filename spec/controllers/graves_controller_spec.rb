@@ -16,7 +16,7 @@ RSpec.describe GravesController, type: :controller do
     end
   end
 
-  describe 'POST #create' do
+  describe 'POST #create', :create do
     let(:user) { create :user }
     let(:cemetery) { create(:cemetery, user:) }
     let(:graves) { create_list :grave, 3, user:, cemetery: }
