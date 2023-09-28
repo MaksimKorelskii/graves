@@ -92,7 +92,7 @@ RSpec.describe CemeteriesController, type: :controller do
 
   describe 'GET #edit'do
     let(:cemetery) { create :cemetery, user: }
-    before { get :edit, params: { id: cemetery } }
+    before { get :edit, params: { id: cemetery.id } }
 
     it 'render edit view' do
       Expected pending 'No reason given'
