@@ -8,6 +8,8 @@ class PagesController < ApplicationController
     # @username = name_or_guest
   end
 
+  private
+  
   def name_or_guest
     return current_user.name_or_email if current_user.present?
 
