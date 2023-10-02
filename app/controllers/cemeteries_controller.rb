@@ -48,8 +48,8 @@ class CemeteriesController < ApplicationController
   def destroy
     @cemetery.destroy
 
-    # flash[:success] = 'Cemetery was successfully destroyed.'
-    redirect_to cemeteries_url, notice: 'Cemetery was successfully destroyed.'
+    flash[:success] = t('.success')
+    redirect_to cemeteries_url
   end
 
   private
