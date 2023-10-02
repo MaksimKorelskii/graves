@@ -93,14 +93,12 @@ RSpec.describe CemeteriesController, type: :controller do
   end
 
   describe 'GET #edit' do
+    before { login(user) }
     let(:cemetery) { create :cemetery, user: }
     before { get :edit, params: { id: cemetery.id } }
 
     it 'render edit view' do
-      Expected pending 'No reason given'
-
-      # get edit_cemetery_path(cemetery)
-      # expect(response).to be_successful # render_template :edit
+      expect(response).to render_template :edit
     end
   end
 
