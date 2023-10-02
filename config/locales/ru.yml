@@ -1,0 +1,23 @@
+ru:
+  activerecord:
+    models:
+      cemetery: Кладбище
+      grave: Могила
+      user: Пользователь
+
+    attributes:
+      cemetery:
+        title: Название
+        description: Описание
+
+  pages:
+    index:
+      about: 'Это русский аналог веб-сервиса Billion Graves'
+  menu:
+    home: Главная
+
+  cemeteries:
+    destroy:
+      success: 'Кладбище успешно удалено.'
+
+    
