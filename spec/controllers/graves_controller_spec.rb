@@ -7,12 +7,12 @@ RSpec.describe GravesController, type: :controller do
     let(:user) { create :user }
     let(:cemetery) { create(:cemetery, user:) }
     let(:grave) { create(:grave, cemetery:, user:) }
+    before { login(user) }
 
     it 'PUT #edit' do
-      Expected pending 'No reason given'
-      # get :edit, params: { cemetery_id: cemetery.id, id: grave.id }
+      get :edit, params: { cemetery_id: cemetery.id, id: grave.id }
 
-      # expect(response).to render_template :edit
+      expect(response).to render_template :edit
     end
   end
 
@@ -29,7 +29,7 @@ RSpec.describe GravesController, type: :controller do
         expect(assigns(:cemetery)).to eq cemetery
       end
 
-      it 'assigns new grave for cemetery' do
+      it 'assigns new grave for Grave' do
         expect(assigns(:grave)).to be_a(Grave)
       end
     end
@@ -63,6 +63,45 @@ RSpec.describe GravesController, type: :controller do
         expect do
           post :create, params: { cemetery_id: cemetery, grave: attributes_for(:grave, :invalid) }
         end.to_not change(Grave, :count)
+      end
+    end
+  end
+
+  describe 'PUT #update' do
+    let(:user) { create(:user) }
+    let(:cemetery) { create :cemetery, user: }
+    let(:grave) { create(:grave, user:, cemetery:) }
+    before { login(user) }
+
+    context 'with valid attributes' do
+      before { put :update, params: { id: grave, cemetery_id: cemetery, grave: { last_name: 'Updated_name' } } }
+      
+      it 'assigns the requested grave to @grave' do
+        expect(assigns :grave).to eq grave
+      end
+
+      it 'redirect to @cemetery' do
+        expect(response).to redirect_to(cemetery_path(cemetery, anchor: "grave_#{grave.id}"))
+      end
+
+      it 'updates in db' do
+        grave.reload
+
+        expect(grave.last_name).to eq 'Updated_name'
+      end
+    end
+
+    context 'with invalid attributes' do
+      it 'does not update in db' do
+        expect do
+          put :update, params: { id: grave, cemetery_id: cemetery, grave: attributes_for(:grave, :invalid) }
+        end.to_not change(grave, :last_name)
+      end
+
+      it 'render edit view' do
+        put :update, params: { id: grave, cemetery_id: cemetery, grave: attributes_for(:grave, :invalid) }
+
+        expect(response).to render_template :edit
       end
     end
   end
