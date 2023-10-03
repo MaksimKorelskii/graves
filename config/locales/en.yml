@@ -20,3 +20,6 @@ en:
   cemeteries:
     destroy:
       success: 'Cemetery was successfully destroyed.'
+
+  flash:
+    example: Example

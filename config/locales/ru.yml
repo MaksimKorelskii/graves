@@ -20,4 +20,5 @@ ru:
     destroy:
       success: 'Кладбище успешно удалено.'
 
-    
+  flash:
+    example: Example
