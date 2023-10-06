@@ -8,8 +8,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 user = User.create(email: 'demiurge@example.com',
-                   password: 'demiurge',
-                   password_confirmation: 'demiurge')
+                   password: 'demiurge@example.com',
+                   password_confirmation: 'demiurge@example.com')
 
 10.times do
   title = "Cemetery #{Faker::Lorem.word.capitalize}"

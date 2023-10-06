@@ -10,7 +10,7 @@
     "nodemon": "^3.0.1",
     "postcss": "^8.4.29",
     "postcss-cli": "^10.1.0",
-    "sass": "^1.66.1",
+    "sass": "^1.69.0",
     "turbolinks": "^5.2.0",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4"
