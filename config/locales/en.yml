@@ -1,4 +1,7 @@
 en:
+  en: English
+  ru: Русский
+  
   activerecord:
     models:
       cemetery: Cemetery
