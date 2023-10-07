@@ -1,7 +1,10 @@
 en:
+<<<<<<< HEAD
   en: English
   ru: Русский
   
+=======
+>>>>>>> 9b96fbfb0b16c32845d0e55eac652302270fef01
   activerecord:
     models:
       cemetery: Cemetery
