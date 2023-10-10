@@ -53,7 +53,11 @@ gem 'devise', '~> 4'
 # Decorator
 gem 'draper', '~> 4'
 
+# Localize
 gem 'rails-i18n', '~> 7'
+
+# Authorization
+gem 'pundit', '~> 2.3'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
