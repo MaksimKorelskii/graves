@@ -7,6 +7,11 @@ class CemeteriesController < ApplicationController
   def index
     # @cemeteries = Cemetery.all
     @pagy, @cemeteries = pagy Cemetery.includes(:user).order(created_at: :desc)
+    # @pagy, @cemeteries = pagy Cemetery.includes(:user).
+    #         joins(:graves).
+    #         select("cemeteries.*", 'COUNT("graves.id") AS graves_count').
+    #         group('cemeteries.id')
+
     @cemeteries = @cemeteries.decorate
   end
 

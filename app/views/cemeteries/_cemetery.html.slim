@@ -1,5 +1,5 @@
 article class="card my-3"
-  p = link_to "#{strip_tags cemetery.title} | Graves: #{cemetery.graves.count} | Description: #{truncate cemetery.description, length: 30, omission: '... (continued)'}", cemetery, class: 'btn'
+  p = link_to "#{strip_tags cemetery.title} | Graves: #{cemetery.graves.size} | Description: #{truncate cemetery.description, length: 30, omission: '... (continued)'}", cemetery, class: 'btn'
 
   section class="card-header"
     = cemetery.user.name_or_email
