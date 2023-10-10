@@ -29,16 +29,17 @@ h2 New grave
   = pagination @pagy
 
   .graves_table
-    table class="table"
-      tr
-        th Last name
-        th First name
-        th Father name
-        th Birthday
-        th Deathday
-        th Action
-
-      == render partial: 'graves/grave', collection: @graves, as: :grave,
-        locals: {cemetery: @cemetery}
+    table class="table table-striped table-hover"
+      thead
+        tr
+          th scope="col" Last name
+          th scope="col" First name
+          th scope="col" Father name
+          th scope="col" Birthday
+          th scope="col" Deathday
+          th scope="col" Action
+      body
+        == render partial: 'graves/grave', collection: @graves, as: :grave,
+          locals: {cemetery: @cemetery}
 
   = pagination @pagy

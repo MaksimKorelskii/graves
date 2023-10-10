@@ -1,13 +1,13 @@
 / tr id="grave-#{grave.id}"
 / tr id="#{dom_id grave}"
 = tag.tr id: dom_id(grave) do
-  th= grave.last_name
-  th= grave.first_name
-  th= grave.father_name
-  th= grave.birthday
-  th= grave.deathday
-  th= link_to "Edit grave", edit_cemetery_grave_path(cemetery, grave), 
+  td= grave.last_name
+  td= grave.first_name
+  td= grave.father_name
+  td= grave.birthday
+  td= grave.deathday
+  td= link_to "Edit grave", edit_cemetery_grave_path(cemetery, grave), 
               class: 'btn btn-info btn-sm'
-  th= link_to "Delete", cemetery_grave_path(cemetery, grave), 
+  td= link_to "Delete", cemetery_grave_path(cemetery, grave), 
               class: 'btn btn-danger btn-sm',
               data: { method: :delete }
