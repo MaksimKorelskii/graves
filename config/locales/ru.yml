@@ -1,6 +1,13 @@
 ru:
   en: Английский
   ru: Русский
+
+  global:
+    user:
+      roles:
+        user: Пользователь
+        moderator: Модератор
+        admin: Администратор
   
   activerecord:
     models:
@@ -12,6 +19,21 @@ ru:
       cemetery:
         title: Название
         description: Описание
+      grave:
+        last_name: Фамилия
+        first_name: Имя
+        father_name: Отчество
+        birthday: Дата рождения
+        deathday: Дата смерти
+
+  admin:
+    users:
+      edit:
+        title: Редактирование пользователя
+      update:
+        success: Пользователь обновлен!
+      destroy:
+        success: Пользователь удален!
 
   pages:
     index:
@@ -22,6 +44,12 @@ ru:
   cemeteries:
     destroy:
       success: 'Кладбище успешно удалено.'
+
+  users:
+    global:
+      forms:
+        register: Регистрация
+        save: Сохранить
 
   flash:
     example: Example

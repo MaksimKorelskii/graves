@@ -1,6 +1,13 @@
 en:
   en: English
   ru: Русский
+
+  global:
+    user:
+      roles:
+        user: User
+        moderator: Moderator
+        admin: Admin
   
   activerecord:
     models:
@@ -12,6 +19,21 @@ en:
       cemetery:
         title: Title
         description: Description
+      grave:
+        last_name: Last name
+        first_name: First name
+        father_name: Father name
+        birthday: Birthday
+        deathday: Deathday
+
+  admin:
+    users:
+      edit:
+        title: Edit user
+      update:
+        success: User updated!
+      destroy:
+        success: User deleted!
 
   pages:
     index:
@@ -23,6 +45,12 @@ en:
   cemeteries:
     destroy:
       success: 'Cemetery was successfully destroyed.'
+
+  users:
+    global:
+      forms:
+        register: Register
+        save: Save
 
   flash:
     example: Example
