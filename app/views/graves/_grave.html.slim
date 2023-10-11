@@ -8,10 +8,10 @@
   td= grave.deathday
   td
     - if policy(grave).edit?
-      = link_to "Edit grave", edit_cemetery_grave_path(cemetery, grave), 
+      = link_to t('.edit'), edit_cemetery_grave_path(cemetery, grave), 
                 class: 'btn btn-info btn-sm'
   td
     - if policy(grave).destroy?
-      = link_to "Delete", cemetery_grave_path(cemetery, grave), 
+      = link_to t('.delete'), cemetery_grave_path(cemetery, grave), 
                   class: 'btn btn-danger btn-sm',
                   data: { method: :delete }

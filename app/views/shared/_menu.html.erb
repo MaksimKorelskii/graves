@@ -5,7 +5,7 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><%= nav_tab t('menu.home'), root_path,
             class: 'nav-link px-2', current_page: current_page %></li>
-          <li><%= nav_tab 'Cemeteries', cemeteries_path,
+          <li><%= nav_tab t('menu.cemeteries'), cemeteries_path,
             class: 'nav-link px-2', current_page: current_page %></li>
           <% if policy([:admin, :user]).index? %>
             <li><%= nav_tab t('menu.users'), admin_users_path,
@@ -44,13 +44,13 @@
                   data: {"bs-toggle": 'dropdown'}, current_page: current_page %>              
 
               <ul class='dropdown-menu'>
-                <li><%= link_to 'Edit profile', edit_user_registration_path,
+                <li><%= link_to t('menu.edit_profile'), edit_user_registration_path,
                     class: 'dropdown-item' %>
                 </li>
 
                 <li><hr class="dropdown-divider"></li>
 
-                <li><%= link_to 'Log out', destroy_user_session_path, method: :delete,
+                <li><%= link_to t('menu.log_out'), destroy_user_session_path, method: :delete,
                         class: 'dropdown-item' %>
                 </li>
               </ul>

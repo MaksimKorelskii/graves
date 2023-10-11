@@ -27,6 +27,14 @@ ru:
         father_name: Отчество
         birthday: Дата рождения
         deathday: Дата смерти
+      user:
+        email: Email
+        name: Имя
+        role: Права доступа
+        created_at: Дата создания
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        current_password: Текущий пароль
 
   admin:
     users:
@@ -36,16 +44,43 @@ ru:
         success: Пользователь обновлен!
       destroy:
         success: Пользователь удален!
+      index:
+        action: Действия
+      user:
+        edit: Редактировать
+        delete: Удалить
 
   pages:
     index:
       about: 'Это русский аналог веб-сервиса Billion Graves'
+
   menu:
     home: Главная
+    cemeteries: Кладбища
+    users: Пользователи
+    edit_profile: Редактировать профиль
+    log_out: Выйти
 
   cemeteries:
     destroy:
       success: 'Кладбище успешно удалено.'
+    index:
+      new: Создать новое кладбище
+      title: Список кладбищ
+    show:
+      action: Действия
+      title: Список
+      new_grave: Добавить новую персону
+      edit: Редактировать
+      delete: Удалить
+      back: Назад
+
+  graves:
+    form:
+      submit: Добавить!
+    grave:
+      edit: Редактировать
+      delete: Удалить
 
   users:
     global:

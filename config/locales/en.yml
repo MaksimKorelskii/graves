@@ -27,6 +27,14 @@ en:
         father_name: Father name
         birthday: Birthday
         deathday: Deathday
+      user:
+        email: Email
+        name: Name
+        role: Role
+        created_at: Created at
+        password: Password
+        password_confirmation: Password confirmation
+        current_password: Current password
 
   admin:
     users:
@@ -36,6 +44,11 @@ en:
         success: User updated!
       destroy:
         success: User deleted!
+      index:
+        action: Action
+      user:
+        edit: Edit
+        delete: Delete
 
   pages:
     index:
@@ -43,10 +56,31 @@ en:
 
   menu:
     home: Home
+    cemeteries: Cemeteries
+    users: Users
+    edit_profile: Edit profile
+    log_out: Log out
 
   cemeteries:
     destroy:
       success: 'Cemetery was successfully destroyed.'
+    index:
+      new: New cemetery
+      title: List of cemeteries
+    show:
+      action: Action
+      title: Graves
+      new_grave: New grave
+      edit: Edit
+      delete: Delete
+      back: Back
+
+  graves:
+    form:
+      submit: Submit Grave!
+    grave:
+      edit: Edit
+      delete: Delete
 
   users:
     global:

@@ -1,10 +1,11 @@
-- provide :page_title, 'Cemeteries'
-- currently_at('Cemeteries')
+- provide :page_title, t('menu.cemeteries')
+- currently_at(t('menu.cemeteries'))
 
-h1 class="mb-4" Cemeteries
+h1 class="mb-4" 
+  = t('.title')
 
 - if policy(:cemetery).new?
-  = link_to "New cemetery", new_cemetery_path, class: 'btn btn-primary btn-sm mb-3'
+  = link_to t('.new'), new_cemetery_path, class: 'btn btn-primary btn-sm mb-3'
 
 = pagination @pagy
 
