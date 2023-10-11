@@ -4,6 +4,8 @@ class GravesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_cemetery!
   before_action :set_grave!, only: %i[edit update destroy]
+  before_action :authorize_grave!
+  after_action :verify_authorized
 
   include ActionView::RecordIdentifier
 
@@ -56,5 +58,9 @@ class GravesController < ApplicationController
   def grave_update_params
     params.require(:grave).permit(:last_name, :first_name, :father_name,
                                   :birthday, :deathday)
+  end
+
+  def authorize_grave!
+    authorize(@grave || Grave)
   end
 end

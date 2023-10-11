@@ -14,4 +14,14 @@ class User < ApplicationRecord
   # It do devise :validatable
   #   validates :email, presence: true, uniqueness: true,
   #                     format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  validates :role, presence: true
+
+  def author?(obj)
+    obj.user == self
+  end
+
+  def guest?
+    false
+  end
 end

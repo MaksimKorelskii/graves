@@ -3,6 +3,8 @@
 class CemeteriesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_cemetery, only: %i[show edit update destroy]
+  before_action :authorize_cemetery!
+  after_action :verify_authorized
 
   def index
     # @cemeteries = Cemetery.all
@@ -66,5 +68,9 @@ class CemeteriesController < ApplicationController
   def cemetery_params
     params.require(:cemetery).permit(:title, :description)
     # params.fetch(:cemetery, {})
+  end
+
+  def authorize_cemetery!
+    authorize(@cemetery || Cemetery)
   end
 end

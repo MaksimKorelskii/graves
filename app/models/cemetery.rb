@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Cemetery < ApplicationRecord
+  include Authorship
+
   has_many :graves, dependent: :destroy
   belongs_to :user
 

@@ -3,7 +3,8 @@
 
 h1 class="mb-4" Cemeteries
 
-= link_to "New cemetery", new_cemetery_path, class: 'btn btn-primary btn-sm mb-3'
+- if policy(:cemetery).new?
+  = link_to "New cemetery", new_cemetery_path, class: 'btn btn-primary btn-sm mb-3'
 
 = pagination @pagy
 

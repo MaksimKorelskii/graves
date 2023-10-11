@@ -8,6 +8,8 @@ en:
         user: User
         moderator: Moderator
         admin: Admin
+    flash:
+      not_authorized: You are not authorized to preform this action
   
   activerecord:
     models:

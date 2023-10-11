@@ -10,18 +10,21 @@ div class="lead my-3"
 / sanitize позволяет пользователю использовать безопасные теги для редактирования текста
 
 div
-  => link_to "Edit", edit_cemetery_path(@cemetery), class: 'btn btn-primary'
-  '|
-  => link_to "Delete", cemetery_path(@cemetery), method: :delete, class: 'btn btn-danger',
-             data: {method: :delete, confirm: 'Are you sure?'}
-  '|
+  - if policy(@cemetery).update?
+    => link_to "Edit", edit_cemetery_path(@cemetery), class: 'btn btn-primary'
+    '|
+
+  - if policy(@cemetery).destroy?
+    => link_to "Delete", cemetery_path(@cemetery), method: :delete, class: 'btn btn-danger',
+              data: {method: :delete, confirm: 'Are you sure?'}
+    '|
   =< link_to "Back to cemeteries", cemeteries_path, class: 'btn btn-secondary'
 
 hr class="my-3"
 
-h2 New grave
-
-== render 'graves/form'
+- if policy(@grave).new?
+  h2 New grave
+  == render 'graves/form'
 
 - unless @graves.empty? 
   h2 Graves

@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::BaseController
   before_action :authenticate_user!
   before_action :set_user!, only: %i[edit update destroy]
+  before_action :authorize_user!
+  after_action :verify_authorized
 
   def index
     @pagy, @users = pagy User.order(created_at: :desc)
@@ -34,5 +36,9 @@ class Admin::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :role, :password, :password_confirmation)
+  end
+
+  def authorize_user!
+    authorize([:admin, (@user || User)])
   end
 end

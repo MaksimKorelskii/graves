@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Grave < ApplicationRecord
+  include Authorship
+
   belongs_to :cemetery
   belongs_to :user
 

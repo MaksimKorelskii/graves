@@ -7,16 +7,23 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-15.times do
+# 15.times do
+#   name = Faker::Lorem.word.capitalize
+#   email = "#{Faker::Lorem.word.capitalize}@example.com"
+#   User.create(email: email,
+#               name: name,
+#               password: email,
+#               password_confirmation: email)
+# end
+
+10.times do
   name = Faker::Lorem.word.capitalize
   email = "#{Faker::Lorem.word.capitalize}@example.com"
   User.create(email: email,
               name: name,
               password: email,
               password_confirmation: email)
-end
 
-10.times do
   title = "Cemetery #{Faker::Lorem.word.capitalize}"
   description = Faker::Lorem.paragraph(sentence_count: 5, supplemental: true, random_sentences_to_add: 4)
   cemetery = Cemetery.create(title:, description:, user_id: User.last.id)
