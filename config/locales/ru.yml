@@ -10,7 +10,10 @@ ru:
         admin: Администратор
     flash:
       not_authorized: У вас нет прав на выполнение этого действия!
-  
+    back: Назад
+    edit: Редактировать
+    delete: Удалить
+
   activerecord:
     models:
       cemetery: Кладбище
@@ -65,7 +68,7 @@ ru:
     destroy:
       success: 'Кладбище успешно удалено.'
     index:
-      new: Создать новое кладбище
+      new: Добавить новое кладбище
       title: Список кладбищ
     show:
       action: Действия
@@ -74,6 +77,10 @@ ru:
       edit: Редактировать
       delete: Удалить
       back: Назад
+    form:
+      title: Название
+      description: Описание
+      submit: Добавить
 
   graves:
     form:

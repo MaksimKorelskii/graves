@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     #   # Если передать в строке запроса параметр http://localhost:3000/?username=Maks
     #   # params[:username].nil? ? @username = 'Guest' : @username = params[:username]
     # @username = name_or_guest
+    # render plain: params.to_yaml and return# Отрендерить текст объект params
   end
 
   private

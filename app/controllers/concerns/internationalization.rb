@@ -4,35 +4,40 @@ module Internationalization
   extend ActiveSupport::Concern
 
   included do
-    around_action :switch_locale
+    before_action :set_locale
+    # around_action :switch_locale
 
     protected
+
+    def set_locale
+      I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+    end  
 
     def switch_locale(&action)
       locale = locale_from_url || locale_from_headers || I18n.default_locale
       response.set_header 'Content-Language', locale
-      I18n.with_locale locale, &action
+      I18n.with_locale(locale, &action)
     end
 
     def locale_from_url
       locale = params[:locale]
-
       return locale if I18n.available_locales.map(&:to_s).include?(locale)
+      # return locale if I18n.locale_available?(params[:locale])
     end
 
     # Adapted from https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/locale.rb
     def locale_from_headers
       header = request.env['HTTP_ACCEPT_LANGUAGE']
 
-      return if header.nil?
+      return nil if header.nil?
 
-      locales = parse_header header
+      locales = parse_header(header)
 
       return if locales.empty?
 
       return locales.last unless I18n.enforce_available_locales
 
-      detect_from_available locales
+      detect_from_available(locales)
     end
 
     def parse_header(header)

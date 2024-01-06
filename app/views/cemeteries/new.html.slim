@@ -1,11 +1,10 @@
-- provide :page_title, 'New cemetery'
-- currently_at('Cemeteries')
+- provide :page_title, t('cemeteries.index.new')
+- currently_at t('cemeteries.index.new')
 
-h1 New cemetery
+h1 
+  = t('cemeteries.index.new')
 
 == render "form", cemetery: @cemetery
 
-br
-
 div
-  = link_to "Back to cemeteries", cemeteries_path, class: 'btn btn-primary'
+  = link_to t('global.back'), cemeteries_path, class: 'btn btn-primary mt-2'
